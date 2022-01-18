@@ -5,10 +5,10 @@ hosts:
     - server-C
     - server-D
     - server-E
+    - server-F
+    - server-G
   test_clients:
     - client-F
-    - client-G
-    - client-H
 timeout: 840
 server_config:
   name: daos_server
@@ -36,15 +36,10 @@ ior:
   flags: "-w -k"
   dfs_destroy: False
   test_file: /testFile
-  repetitions: 1
   signature: 5
-  transfersize_blocksize:
-    1M:
-      transfer_size: '1M'
-      block_size: '1G'        # aggregate of 30G for dcp and 10G for fs_copy
-  objectclass:
-    EC_4P1GX:
-      dfs_oclass: "EC_4P1GX"
+  transfer_size: '1M'
+  block_size: '1G'        # aggregate of 30G for dcp and 10G for fs_copy
+  dfs_oclass: "EC_4P1GX"
 dcp:
   bufsize: "64MB"
   chunksize: "128MB"
